@@ -58,11 +58,24 @@ function Details() {
     )
 }
 
+function QnA() {
+    return (
+        <div id="qna">
+            <h2>Q&amp;A</h2>
+            <h3>What is the meaning of my Github username "ALMSIVI"?</h3>
+            <p>The name comes from the Elder Scrolls, the RPG series by Bethesda. It refers to the three gods of the Dark Elf: <b>Alm</b>alexia, Sotha <b>Si</b>l, and  <b>Vi</b>vec. They are the center of the game's lores, and their <a href="https://elderscrolls.fandom.com/wiki/36_Lessons_of_Vivec">36 lessons</a> have intrigued counteless ES enthusiasts. In the third game Morrowind, the protagonist will encounter them. for more information, you can refer to <a href="https://elderscrolls.fandom.com/wiki/Tribunal">the wiki page</a>.</p>
+            <h3>What is my Github profile picture?</h3>
+            <p>This is the cover of Damnation Angel's album, <a href="https://www.metal-archives.com/albums/Damnation_Angels/The_Valiant_Fire/488063">The Valiant Fire</a>. This is a great power metal album, and is enjoyable even for non-metalheads.</p>
+        </div>
+    )
+}
 export default function Home() {
     return (
         <div id="container">
             <Intro />
             <Details />
+            <hr />
+            <QnA />
             <Footer />
         </div>
     )

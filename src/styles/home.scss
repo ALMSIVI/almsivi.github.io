@@ -19,7 +19,7 @@ $photo-size: 450px;
 }
 
 .section {
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
 .section > * {
@@ -75,4 +75,8 @@ $photo-size: 450px;
         top: 50%;
         transform: translate(-50%, -50%);
     }
+}
+
+#qna {
+    padding: 2rem;
 }
