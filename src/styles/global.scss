@@ -1,17 +1,51 @@
+$bubble-color: #aedef5;
+$bubble-size: 1000px;
+
 html {
-    background-color: azure;
+    background-color: aliceblue;
 }
 
 .layout {
-    margin: 3rem auto;
-    max-width: 650;
-    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#header {
+    text-align: center;
+}
+
+#layout-bubble {
+    position: relative;
+    transform: translate(0, -50%);
+    width: $bubble-size;
+    height: $bubble-size / 2;
+    border-radius: 0 0 $bubble-size $bubble-size;
+    background-color: $bubble-color;
+    margin: auto;
+}
+
+#title {
+    position: absolute;
+    top: $bubble-size / 10;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.contents {
+    margin: 0 3rem;
+    position: relative;
+    top: -$bubble-size / 5;
 }
 
 .nav {
     list-style: none;
+    li {
+        display: inline-block;
+        margin-right: 1rem;
+    }
 }
 
-footer>* {
+footer > * {
     margin: 2rem;
 }

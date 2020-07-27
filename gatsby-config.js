@@ -7,7 +7,7 @@
 module.exports = {
     /* Your site config here */
     siteMetadata: {
-        title: `Yue Wu's Personal Website`,
+        title: `Yue Wu`,
     },
     plugins: [
         `gatsby-plugin-sass`,

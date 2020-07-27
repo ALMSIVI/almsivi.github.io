@@ -2,11 +2,13 @@ import React from 'react'
 import Header from './header'
 import Footer from './footer'
 
-export default function Layout({ children }) {
+export default function Layout({ current, children }) {
     return (
         <div className="layout">
-            <Header />
-            {children}
+            <Header current={current} />
+            <div className="contents">
+                {children}
+            </div>
             <Footer />
         </div>
     )

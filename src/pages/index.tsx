@@ -13,9 +13,9 @@ const Profile = () => (
 const Nav = () => (
     <nav>
         <ul className="nav">
-            <ListLink to="/resume">Resume</ListLink>
-            <ListLink to="/portfolio">Portfolio</ListLink>
-            <ListLink to="/cn">中文</ListLink>
+            <ListLink to="/resume" curr="/">Resume</ListLink>
+            <ListLink to="/portfolio" curr="/">Portfolio</ListLink>
+            <ListLink to="/cn" curr="/">中文</ListLink>
         </ul>
     </nav>
 )
