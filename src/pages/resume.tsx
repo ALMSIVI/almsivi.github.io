@@ -2,13 +2,37 @@ import React from 'react'
 import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import * as resume from '../data/resume.json'
-import '../styles/resume.scss'
+import { css } from '@emotion/core'
 
 const Title = ({ bold, italics, right }) => (
-    <div className="title">
-        <span className="bold">{bold}</span>
-        <span className="italic">{italics}</span>
-        <span className="right">{right}</span>
+    <div
+        css={css`
+            margin-bottom: 1rem;
+        `}
+    >
+        <span
+            css={css`
+                font-weight: bold;
+                margin-right: 2rem;
+                font-size: 1.2rem;
+            `}
+        >
+            {bold}
+        </span>
+        <span
+            css={css`
+                font-style: italic;
+            `}
+        >
+            {italics}
+        </span>
+        <span
+            css={css`
+                float: right;
+            `}
+        >
+            {right}
+        </span>
     </div>
 )
 
@@ -17,8 +41,8 @@ const Work = ({ position, company, location, date, bullets }) => (
     <div>
         <Title bold={position} italics={company + ', ' + location} right={date} />
         <ul>
-            {bullets.map(bullet => (
-                <li>{bullet}</li>
+            {bullets.map((bullet, index) => (
+                <li key={index}>{bullet}</li>
             ))}
         </ul>
     </div>
@@ -28,10 +52,17 @@ const Work = ({ position, company, location, date, bullets }) => (
 const Project = ({ name, position, date, link, bullets }) => (
     <div>
         <Title bold={name} italics={position} right={date} />
-        <div className="repo"><a href={link}>Link to repository</a></div>
+        <div
+            css={css`
+                display: block;
+                margin-bottom: 1rem;
+            `}
+        >
+            <a href={link}>Link to repository</a>
+        </div>
         <ul>
-            {bullets.map(bullet => (
-                <li>{bullet}</li>
+            {bullets.map((bullet, index) => (
+                <li key={index}>{bullet}</li>
             ))}
         </ul>
     </div>
@@ -63,14 +94,14 @@ export default function Resume() {
             </section>
             <section>
                 <h2>Work Experiences</h2>
-                {resume.work.map(work => (
-                    <Work {...work} />
+                {resume.work.map((work, index) => (
+                    <Work key={index} {...work} />
                 ))}
             </section>
             <section>
                 <h2>Other Projects</h2>
-                {resume.projects.map(project => (
-                    <Project {...project} />
+                {resume.projects.map((project, index) => (
+                    <Project key={index} {...project} />
                 ))}
             </section>
         </Layout>

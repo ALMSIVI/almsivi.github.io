@@ -1,8 +1,14 @@
 import React from 'react'
+import { css } from '@emotion/core'
 
 const Anchor = (props: { href: string }) => (
     <a
-        style={{ textShadow: `none`, textDecoration: `none`, color: `white`, backgroundImage: `none` }}
+        css={css`
+            text-shadow: none;
+            text-decoration: none;
+            color: white;
+            background-image: none;
+        `}
         href={props.href}
     >
         {props.href}
@@ -11,9 +17,27 @@ const Anchor = (props: { href: string }) => (
 
 export default function Footer() {
     return (
-        <footer style={{ backgroundColor: `#9CA1AD`, color: `white`, width: `100%` }}>
-            <h2 style={{ color: `white` }}>Contact</h2>
-            <ul style={{ listStyle: `none` }}>
+        <footer
+            css={css`
+                background-color: #9ca1ad;
+                color: white;
+                width: 100%;
+            `}
+        >
+            <h2
+                css={css`
+                    color: white;
+                    margin: 2rem;
+                `}
+            >
+                Contact
+            </h2>
+            <ul
+                css={css`
+                    list-style: none;
+                    margin: 2rem;
+                `}
+            >
                 <li>
                     Github: <Anchor href="https://github.com/ALMSIVI" />
                 </li>

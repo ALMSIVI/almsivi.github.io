@@ -1,15 +1,27 @@
 import React from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { css } from '@emotion/core'
 
 const Item = props => (
-    <a href={props.href} style={{ marginRight: `1rem`, background: `none`}}>
+    <a
+        href={props.href}
+        css={css`
+            margin-right: 1rem;
+            background: none;
+        `}
+    >
         {props.children}
     </a>
 )
 
 export default function Socials() {
     return (
-        <ul style={{ listStyle: `none`, marginLeft: `0` }}>
+        <ul
+            css={css`
+                list-style: none;
+                margin-left: 0;
+            `}
+        >
             <Item href="mailto:yuw264@ucsd.edu">
                 <FaEnvelope />
             </Item>

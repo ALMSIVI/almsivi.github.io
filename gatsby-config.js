@@ -10,7 +10,7 @@ module.exports = {
         title: `Yue Wu`,
     },
     plugins: [
-        `gatsby-plugin-sass`,
+        `gatsby-plugin-emotion`,
         {
             resolve: `gatsby-plugin-typography`,
             options: { pathToConfigModule: `src/utils/typography` },
