@@ -1,8 +1,9 @@
 import React from 'react'
-import Layout from '../components/layout'
 import { Link } from 'gatsby'
-import * as resume from '../data/resume.json'
 import { css } from '@emotion/core'
+import Layout from '../components/layout'
+import Board from '../components/board'
+import * as resume from '../data/resume.json'
 
 const Title = ({ bold, italics, right }) => (
     <div
@@ -38,19 +39,19 @@ const Title = ({ bold, italics, right }) => (
 
 // TODO: link, picture, timeline
 const Work = ({ position, company, location, date, bullets }) => (
-    <div>
+    <Board>
         <Title bold={position} italics={company + ', ' + location} right={date} />
         <ul>
             {bullets.map((bullet, index) => (
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
-    </div>
+    </Board>
 )
 
 // TODO: link
 const Project = ({ name, position, date, link, bullets }) => (
-    <div>
+    <Board>
         <Title bold={name} italics={position} right={date} />
         <div
             css={css`
@@ -65,7 +66,7 @@ const Project = ({ name, position, date, link, bullets }) => (
                 <li key={index}>{bullet}</li>
             ))}
         </ul>
-    </div>
+    </Board>
 )
 
 export default function Resume() {

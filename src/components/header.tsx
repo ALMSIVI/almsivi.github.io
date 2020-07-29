@@ -32,34 +32,35 @@ export default function Header({ current }) {
                     background-color: ${styles.bubbleColor};
                     margin: auto;
                 `}
-            ></div>
-            <div
-                id="title"
-                css={css`
-                    position: absolute;
-                    top: ${styles.contentTop};
-                    left: 50%;
-                    transform: translate(-50%);
-                `}
             >
-                <Link
-                    to="/"
+                <div
+                    id="title"
                     css={css`
-                        display: block;
-                        text-shadow: none;
-                        background-image: none;
-                        margin-bottom: 2rem;
+                        position: absolute;
+                        top: ${styles.contentTop};
+                        left: 50%;
+                        transform: translate(-50%);
                     `}
                 >
-                    <h1
+                    <Link
+                        to="/"
                         css={css`
-                            display: inline;
+                            display: block;
+                            text-shadow: none;
+                            background-image: none;
+                            margin-bottom: 2rem;
                         `}
                     >
-                        {data.site.siteMetadata.title}
-                    </h1>
-                </Link>
-                <Navigation current={current} />
+                        <h1
+                            css={css`
+                                display: inline;
+                            `}
+                        >
+                            {data.site.siteMetadata.title}
+                        </h1>
+                    </Link>
+                    <Navigation current={current} vertical={false} />
+                </div>
             </div>
         </header>
     )

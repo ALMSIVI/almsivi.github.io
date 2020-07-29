@@ -1,7 +1,7 @@
 const styles = {
     bubbleSize: '1000px',
     halfBubbleSize: '500px',
-    contentTop: '100px',
+    contentTop: '300px',
     profileBorderSize: '500px',
     profilePhotoSize: '450px',
     bubbleColor: '#aedef5',

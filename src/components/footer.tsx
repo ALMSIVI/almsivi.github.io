@@ -27,7 +27,7 @@ export default function Footer() {
             <h2
                 css={css`
                     color: white;
-                    margin: 2rem;
+                    padding: 1rem 0 0 1rem;
                 `}
             >
                 Contact
@@ -35,7 +35,8 @@ export default function Footer() {
             <ul
                 css={css`
                     list-style: none;
-                    margin: 2rem;
+                    margin: 0;
+                    padding: 1rem;
                 `}
             >
                 <li>

@@ -1,8 +1,9 @@
 import React from 'react'
-import Layout from '../components/layout'
 import { Link } from 'gatsby'
-import * as portfolio from '../data/portfolio.json'
 import { css } from '@emotion/core'
+import Layout from '../components/layout'
+import Board from '../components/board'
+import * as portfolio from '../data/portfolio.json'
 
 const Title = ({ bold, right }) => (
     <div
@@ -31,12 +32,12 @@ const Title = ({ bold, right }) => (
 
 // TODO: link, image/video
 const Project = ({ name, date, description }) => (
-    <div>
+    <Board>
         <Title bold={name} right={date} />
         {description.map((desc, index) => (
             <p key={index}>{desc}</p>
         ))}
-    </div>
+    </Board>
 )
 
 export default function Portfolio() {
