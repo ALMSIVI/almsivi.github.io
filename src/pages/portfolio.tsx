@@ -45,14 +45,16 @@ export default function Portfolio() {
         <Layout current="/portfolio">
             <section>
                 <h2>About</h2>
-                <p>
-                    This portfolio is about my experiences as a ICAM minor student. For my projects as an computer
-                    science student , see <Link to="/resume">Resume</Link>.
-                </p>
-                <p>
-                    Being a computer scientist, I love to explore the artistic side of technology. I tend to imagine
-                    what our future might look like and how I can express it using my code.
-                </p>
+                <Board>
+                    <p>
+                        This portfolio is about my experiences as a ICAM minor student. For my projects as an computer
+                        science student , see <Link to="/resume">Resume</Link>.
+                    </p>
+                    <p>
+                        Being a computer scientist, I love to explore the artistic side of technology. I tend to imagine
+                        what our future might look like and how I can express it using my code.
+                    </p>
+                </Board>
             </section>
             <section>
                 <h2>Projects</h2>

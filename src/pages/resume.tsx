@@ -74,24 +74,35 @@ export default function Resume() {
         <Layout current="/resume">
             <section>
                 <h2>About</h2>
-                <p>
-                    This resume is about my experiences as a computer science student. For my projects as an ICAM
-                    artist, see <Link to="/portfolio">Portfolio</Link>.
-                </p>
-                <p>
-                    For a pdf version, see <a href="https://github.com/ALMSIVI/Resume/blob/master/resume.pdf">here</a>.
-                </p>
+                <Board>
+                    <p>
+                        This resume is about my experiences as a computer science student. For my projects as an ICAM
+                        artist, see <Link to="/portfolio">Portfolio</Link>.
+                    </p>
+                    <p>
+                        For a pdf version, see{' '}
+                        <a href="https://github.com/ALMSIVI/Resume/blob/master/resume.pdf">here</a>.
+                    </p>
+                </Board>
             </section>
             <section>
                 <h2>Education</h2>
-                <Title bold={resume.education.name} italics="" right={resume.education.time} />
-                <p>Courses taken: {resume.education.courses.join(', ')}</p>
+                <Board>
+                    <Title
+                        bold={resume.education.name}
+                        italics={resume.education.degree}
+                        right={resume.education.time}
+                    />
+                    <p>Courses taken: {resume.education.courses.join(', ')}</p>
+                </Board>
             </section>
             <section>
                 <h2>Skills</h2>
-                <p>Language: {resume.skills.language.join(', ')}</p>
-                <p>Framework: {resume.skills.framework.join(', ')}</p>
-                <p>Software: {resume.skills.software.join(', ')}</p>
+                <Board>
+                    <p>Language: {resume.skills.language.join(', ')}</p>
+                    <p>Framework: {resume.skills.framework.join(', ')}</p>
+                    <p>Software: {resume.skills.software.join(', ')}</p>
+                </Board>
             </section>
             <section>
                 <h2>Work Experiences</h2>
