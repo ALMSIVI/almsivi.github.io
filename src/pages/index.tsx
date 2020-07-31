@@ -12,6 +12,10 @@ const Section = ({ children }) => (
             margin: 2rem;
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
+            @media (max-width: ${styles.mobileBreakpoint}) {
+                margin: 0.5rem;
+            }
         `}
     >
         {children}
@@ -27,6 +31,9 @@ const Profile = () => (
             background-color: #aedef5;
             border-radius: 50%;
             position: relative;
+            @media (max-width: ${styles.profileBorderSize}) {
+                display: none;
+            }
         `}
     >
         <div
@@ -35,8 +42,8 @@ const Profile = () => (
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                width: ${styles.profilePhotoSize};
-                height: ${styles.profilePhotoSize};
+                width: 90%;
+                height: 90%;
                 border-radius: 50%;
                 position: absolute;
                 left: 50%;
@@ -66,9 +73,10 @@ const Intro = () => (
 
 const Details = () => (
     <Section>
-        <Board width="20rem">
+        <Board >
             <p>Pronunciation: Yu-eh Wu</p>
-            <p>Location: San Diego, California, US</p>
+            <p>Place of birth: Shanghai, China</p>
+            <p>Current Location: San Diego, California, US</p>
         </Board>
         <Board width="30rem">
             I am currently a Master's student in Computer Science at UC San Diego. I also earned my Bachelor's degree
@@ -80,7 +88,6 @@ const Details = () => (
 
 const QnA = () => (
     <Section>
-        <h2>Q&amp;A</h2>
         <Board>
             <h3>What is the meaning of my Github username "ALMSIVI"?</h3>
             <p>
@@ -111,6 +118,7 @@ export default function Home() {
             <Intro />
             <Details />
             <hr />
+            <h2>Q &amp; A</h2>
             <QnA />
         </Container>
     )
