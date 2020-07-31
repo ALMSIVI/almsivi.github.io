@@ -14,6 +14,10 @@ export default function Container({ children }) {
                     justify-content: center;
                     align-items: center;
                     max-width: 60em;
+
+                    p:last-child {
+                        margin-bottom: 0;
+                    }
                 `}
             >
                 {children}

@@ -73,7 +73,7 @@ const Intro = () => (
 
 const Details = () => (
     <Section>
-        <Board >
+        <Board>
             <p>Pronunciation: Yu-eh Wu</p>
             <p>Place of birth: Shanghai, China</p>
             <p>Current Location: San Diego, California, US</p>
@@ -86,10 +86,20 @@ const Details = () => (
     </Section>
 )
 
+const Question = ({ children }) => (
+    <h3
+        css={css`
+            margin-top: 0;
+            margin-bottom: 1rem;
+        `}
+    >
+        {children}
+    </h3>
+)
 const QnA = () => (
     <Section>
         <Board>
-            <h3>What is the meaning of my Github username "ALMSIVI"?</h3>
+            <Question>What is the meaning of my Github username "ALMSIVI"?</Question>
             <p>
                 The name comes from the Elder Scrolls, the RPG series by Bethesda. It refers to the three gods of the
                 Dark Elf: <b>Alm</b>alexia, Sotha <b>Si</b>l, and <b>Vi</b>vec. They are the center of the game's lores,
@@ -100,7 +110,7 @@ const QnA = () => (
             </p>
         </Board>
         <Board>
-            <h3>What is my Github profile picture?</h3>
+            <Question>What is my Github profile picture?</Question>
             <p>
                 This is the cover of Damnation Angel's album,{' '}
                 <a href="https://www.metal-archives.com/albums/Damnation_Angels/The_Valiant_Fire/488063">

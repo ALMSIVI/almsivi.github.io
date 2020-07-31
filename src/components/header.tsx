@@ -21,25 +21,31 @@ export default function Header({ current }) {
                 text-align: center;
             `}
         >
+            {/* The bubble */}
             <div
-                id="bubble"
                 css={css`
-                    position: relative;
-                    transform: translate(0, -50%);
-                    width: ${styles.bubbleSize};
-                    height: ${styles.halfBubbleSize};
-                    border-radius: 0 0 ${styles.halfBubbleSize} ${styles.halfBubbleSize};
-                    background-color: ${styles.bubbleColor};
-                    margin: auto;
+                    @media (min-width: ${styles.mobileBreakpoint}) {
+                        position: relative;
+                        transform: translate(0, -50%);
+                        width: ${styles.bubbleSize};
+                        height: ${styles.halfBubbleSize};
+                        border-radius: 0 0 ${styles.halfBubbleSize} ${styles.halfBubbleSize};
+                        background-color: ${styles.bubbleColor};
+                        margin: auto;
+                    }
                 `}
             >
                 <div
                     id="title"
                     css={css`
-                        position: absolute;
-                        top: ${styles.contentTop};
-                        left: 50%;
-                        transform: translate(-50%);
+                        margin-top: 2rem;
+                        
+                        @media (min-width: ${styles.mobileBreakpoint}) {
+                            position: absolute;
+                            top: ${styles.contentTop};
+                            left: 50%;
+                            transform: translate(-50%);
+                        }
                     `}
                 >
                     <Link
@@ -60,6 +66,13 @@ export default function Header({ current }) {
                         </h1>
                     </Link>
                     <Navigation current={current} vertical={false} />
+                    <hr
+                        css={css`
+                            @media (min-width: ${styles.mobileBreakpoint}) {
+                                display: none;
+                            }
+                        `}
+                    />
                 </div>
             </div>
         </header>

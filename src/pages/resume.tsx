@@ -37,15 +37,25 @@ const Title = ({ bold, italics, right }) => (
     </div>
 )
 
+const BulletList = ({ bullets }) => (
+    <ul
+        css={css`
+            margin-bottom: 0;
+            li:last-child {
+                margin-bottom: 0;
+            }
+        `}
+    >
+        {bullets.map((bullet, index) => (
+            <li key={index}>{bullet}</li>
+        ))}
+    </ul>
+)
 // TODO: link, picture, timeline
 const Work = ({ position, company, location, date, bullets }) => (
     <Board>
         <Title bold={position} italics={company + ', ' + location} right={date} />
-        <ul>
-            {bullets.map((bullet, index) => (
-                <li key={index}>{bullet}</li>
-            ))}
-        </ul>
+        <BulletList bullets={bullets} />
     </Board>
 )
 
@@ -61,11 +71,7 @@ const Project = ({ name, position, date, link, bullets }) => (
         >
             <a href={link}>Link to repository</a>
         </div>
-        <ul>
-            {bullets.map((bullet, index) => (
-                <li key={index}>{bullet}</li>
-            ))}
-        </ul>
+        <BulletList bullets={bullets} />
     </Board>
 )
 
