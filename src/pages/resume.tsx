@@ -5,6 +5,59 @@ import Layout from '../components/layout'
 import Board from '../components/board'
 import * as resume from '../data/resume.json'
 
+const titleStyle = css`
+    font-weight: bold;
+    font-size: 1.2rem;
+`
+
+const Skillbar = ({ level }) => (
+    <div
+        css={css`
+            display: inline-block;
+            width: ${level + 'rem'};
+            height: 0.9rem;
+            line-height: 0.9rem;
+            border-radius: 5px;
+            padding-left: 0.5rem;
+            background-color: dodgerblue;
+        `}
+    >
+        {level}/5
+    </div>
+)
+
+const Skillset = ({ title, skills }) => (
+    <Board>
+        <p css={titleStyle}>{title}</p>
+        <div
+            css={css`
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            `}
+        >
+            {skills.map(({ name, level }) => (
+                <div
+                    css={css`
+                        margin: 0.5rem;
+                        width: 15rem;
+                    `}
+                >
+                    <div
+                        css={css`
+                            display: inline-block;
+                            width: 10rem;
+                        `}
+                    >
+                        {name}
+                    </div>
+                    <Skillbar level={level} />
+                </div>
+            ))}
+        </div>
+    </Board>
+)
+
 const Title = ({ bold, italics, right }) => (
     <div
         css={css`
@@ -13,9 +66,8 @@ const Title = ({ bold, italics, right }) => (
     >
         <span
             css={css`
-                font-weight: bold;
+                ${titleStyle};
                 margin-right: 2rem;
-                font-size: 1.2rem;
             `}
         >
             {bold}
@@ -104,11 +156,9 @@ export default function Resume() {
             </section>
             <section>
                 <h2>Skills</h2>
-                <Board>
-                    <p>Language: {resume.skills.language.join(', ')}</p>
-                    <p>Framework: {resume.skills.framework.join(', ')}</p>
-                    <p>Software: {resume.skills.software.join(', ')}</p>
-                </Board>
+                <Skillset title="Language" skills={resume.skills.language} />
+                <Skillset title="Frameworks" skills={resume.skills.framework} />
+                <Skillset title="Software" skills={resume.skills.software} />
             </section>
             <section>
                 <h2>Work Experiences</h2>
@@ -117,7 +167,7 @@ export default function Resume() {
                 ))}
             </section>
             <section>
-                <h2>Other Projects</h2>
+                <h2>Selected Projects</h2>
                 {resume.projects.map((project, index) => (
                     <Project key={index} {...project} />
                 ))}

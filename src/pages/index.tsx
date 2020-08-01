@@ -12,7 +12,7 @@ const Section = ({ children }) => (
             margin: 2rem;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
             @media (max-width: ${styles.mobileBreakpoint}) {
                 margin: 0.5rem;
             }
