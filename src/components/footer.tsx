@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 
 const Anchor = (props: { href: string }) => (
     <a
@@ -40,13 +41,13 @@ export default function Footer() {
                 `}
             >
                 <li>
-                    Github: <Anchor href="https://github.com/ALMSIVI" />
+                    <FaGithub /> Github: <Anchor href="https://github.com/ALMSIVI" />
                 </li>
                 <li>
-                    LinkedIn: <Anchor href="https://www.linkedin.com/in/yue-wu-aaab2213b/" />
+                    <FaLinkedin /> LinkedIn: <Anchor href="https://www.linkedin.com/in/yue-wu-aaab2213b/" />
                 </li>
                 <li>
-                    Email: <Anchor href="yuw264@ucsd.edu" />
+                    <FaEnvelope /> Email: <Anchor href="yuw264@ucsd.edu" />
                 </li>
             </ul>
         </footer>

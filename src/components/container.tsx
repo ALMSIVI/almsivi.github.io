@@ -18,6 +18,10 @@ export default function Container({ children }) {
                     p:last-child {
                         margin-bottom: 0;
                     }
+
+                    * {
+                        box-sizing: border-box;
+                    }
                 `}
             >
                 {children}
