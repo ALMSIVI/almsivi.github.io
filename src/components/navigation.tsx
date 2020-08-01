@@ -1,13 +1,24 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
+import styles from '../utils/styles'
+
+// On small screen sizes, still resort to horizontal list
+const listItem = css`
+@media (max-width: ${styles.mobileBreakpoint}) {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+`
 
 const horizontalItem = css`
     display: inline-block;
     margin-right: 1rem;
 `
+
 const baseList = css`
     list-style: none;
+
 `
 const verticalList = css`
     margin-left: 0;
@@ -16,7 +27,7 @@ const verticalList = css`
 const ListLink = ({ to, current, vertical, children }) => {
     if (vertical) {
         return (
-            <li>
+            <li key={to} css={listItem}>
                 <Link to={to}>{children}</Link>
             </li>
         )

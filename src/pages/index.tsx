@@ -60,6 +60,12 @@ const Intro = () => (
         <div
             css={css`
                 margin-left: 3rem;
+                @media (max-width: ${styles.mobileBreakpoint}) {
+                    margin: 0 1rem;
+                    * {
+                        text-align: center;
+                    }
+                }
             `}
         >
             <h1>Yue Wu</h1>
