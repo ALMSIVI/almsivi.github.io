@@ -1,0 +1,7 @@
+---
+title: "Mathematical Rhythms"
+---
+
+In this project I tried to combine simplicity and complexity: using simple elements to create complicated effects. Only lines/curves and circles appear in this project, but they form moving mathematical curves.
+
+There are three scenes in this project. The three scenes form a progression from simple to complex, and from random to ordered. They alternate in intervals of 10 seconds. The first scene is a Bezier curve with its control points and auxiliary lines to ensure its C1-continuity. The controls points move slightly towards a random direction in each frame, causing the shape itself to pulse like a living being. Four points are given random speeds and traverse along the curve, chasing each other with each pulsation. The second scene consist of numerous circles forming eight sine waves. Extending into the z-axis, these waves mimic the movement of real tidal waves. The third scene is a spiral that starts at a distance but gradually approaches the viewer. Circles would appear from the center and slowly follow the spiral towards the other end. Both the spiral and the circles gradually spin around the center, almost creating an illusion for the viewer.
