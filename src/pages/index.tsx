@@ -1,4 +1,6 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import Socials from '../components/socials'
 import Navigation from '../components/navigation'
 import Board from '../components/board'
@@ -22,7 +24,18 @@ const Section = ({ children }) => (
     </section>
 )
 
-const Profile = () => (
+export const query = graphql`
+    query {
+        file(relativePath: {eq: "Profile.jpg"}) {
+            childImageSharp {
+                fluid(maxWidth: 800, maxHeight: 800) {
+                        ...GatsbyImageSharpFluid
+                }
+            }
+        }
+    }
+`
+const Profile = ({src}) => (
     <div
         css={css`
             width: ${styles.profileBorderSize};
@@ -36,12 +49,9 @@ const Profile = () => (
             }
         `}
     >
-        <div
+        <Img
+            fluid={src}
             css={css`
-                background-image: url('/Profile.jpg');
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
                 width: 90%;
                 height: 90%;
                 border-radius: 50%;
@@ -50,13 +60,13 @@ const Profile = () => (
                 top: 50%;
                 transform: translate(-50%, -50%);
             `}
-        ></div>
+        />
     </div>
 )
 
-const Intro = () => (
+const Intro = ({src}) => (
     <Section>
-        <Profile />
+        <Profile src={src} />
         <div
             css={css`
                 margin-left: 3rem;
@@ -128,10 +138,10 @@ const QnA = () => (
     </Section>
 )
 
-export default function Home() {
+export default function Home({ data }) {
     return (
         <Container>
-            <Intro />
+            <Intro src={data.file.childImageSharp.fluid} />
             <Details />
             <hr />
             <h2>Q &amp; A</h2>

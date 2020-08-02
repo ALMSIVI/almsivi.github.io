@@ -19,6 +19,7 @@ export default function Socials() {
         <ul
             css={css`
                 list-style: none;
+                margin-top: 1rem;
                 margin-left: 0;
             `}
         >
