@@ -15,7 +15,7 @@ export default function Container({ children }) {
                     align-items: center;
                     max-width: 60em;
 
-                    p:last-child {
+                    *:last-child {
                         margin-bottom: 0;
                     }
 
