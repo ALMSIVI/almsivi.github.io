@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import Board from '../components/board'
 import portfolioEn from '../data/i18n/portfolio-en.json'
 import portfolioZh from '../data/i18n/portfolio-zh.json'
+import SEO from '../components/seo'
 
 export const query = graphql`
     query {
@@ -76,6 +77,7 @@ export default function Portfolio({ data }) {
 
     return (
         <Layout current="/portfolio">
+            <SEO title={intl.formatMessage({ id: 'portfolio' })} />
             <section>
                 <h2>
                     <FormattedMessage id="about" />

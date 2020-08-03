@@ -7,6 +7,7 @@ import Board from '../components/board'
 import { css } from '@emotion/core'
 import styles from '../utils/styles'
 import Container from '../components/container'
+import SEO from '../components/seo'
 import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
 import qnaEn from '../data/i18n/qna-en.json'
 import qnaZh from '../data/i18n/qna-zh.json'
@@ -142,8 +143,10 @@ const QnA = () => {
 }
 
 export default function Home({ data }) {
+    const intl = useIntl()
     return (
         <Container>
+            <SEO title={intl.formatMessage({ id: 'title' })} />
             <Intro src={data.file.childImageSharp.fluid} />
             <Details />
             <hr />

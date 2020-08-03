@@ -8,12 +8,15 @@ module.exports = {
     /* Your site config here */
     siteMetadata: {
         title: `Yue Wu`,
+        description: `Yue Wu's Ppersonal website`,
+        author: `Yue Wu (ALMSIVI)`
     },
     plugins: [
         `gatsby-plugin-emotion`,
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `gatsby-transformer-remark`,
+        `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-typography`,
             options: { pathToConfigModule: `src/utils/typography` },

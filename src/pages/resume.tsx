@@ -8,6 +8,7 @@ import Board from '../components/board'
 import styles from '../utils/styles'
 import resumeEn from '../data/i18n/resume-en.json'
 import resumeZh from '../data/i18n/resume-zh.json'
+import SEO from '../components/seo'
 
 const titleStyle = css`
     font-weight: bold;
@@ -224,6 +225,7 @@ export default function Resume({ data }) {
 
     return (
         <Layout current="/resume">
+            <SEO title={intl.formatMessage({ id: 'resume' })} />
             <section>
                 <h2>
                     <FormattedMessage id="about" />
