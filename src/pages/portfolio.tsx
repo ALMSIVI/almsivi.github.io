@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
+import { Link, FormattedMessage, useIntl } from 'gatsby-plugin-intl'
 import Layout from '../components/layout'
 import Board from '../components/board'
-import * as portfolio from '../data/portfolio.json'
+import portfolioEn from '../data/i18n/portfolio-en.json'
+import portfolioZh from '../data/i18n/portfolio-zh.json'
 
 export const query = graphql`
     query {
@@ -64,6 +66,9 @@ const Project = ({ name, date, description, link }) => (
 )
 
 export default function Portfolio({ data }) {
+    const intl = useIntl()
+    const portfolio = intl.locale === 'en' ? portfolioEn : portfolioZh
+
     const articles = {}
     data.allMarkdownRemark.edges.forEach(({ node }) => {
         articles[node.frontmatter.title] = node.fields.slug
@@ -72,20 +77,22 @@ export default function Portfolio({ data }) {
     return (
         <Layout current="/portfolio">
             <section>
-                <h2>About</h2>
+                <h2>
+                    <FormattedMessage id="about" />
+                </h2>
                 <Board>
                     <p>
-                        This portfolio is about my experiences as a ICAM minor student. For my projects as an computer
-                        science student , see <Link to="/resume">Resume</Link>.
+                        <FormattedMessage id="portfolio1" />
                     </p>
                     <p>
-                        Being a computer scientist, I love to explore the artistic side of technology. I tend to imagine
-                        what our future might look like and how I can express it using my code.
+                        <FormattedMessage id="portfolio2" />
                     </p>
                 </Board>
             </section>
             <section>
-                <h2>Projects</h2>
+                <h2>
+                    <FormattedMessage id="projects" />
+                </h2>
                 {portfolio.projects.map((project, index) => (
                     <Project key={index} {...project} link={articles[project.name]} />
                 ))}

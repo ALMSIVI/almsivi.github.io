@@ -1,0 +1,69 @@
+{
+    "projects": [
+        {
+            "name": "Colony",
+            "date": "Fall 2018",
+            "description": [
+                "This project is inspired from agar.io. The pixels form a colony, replicating, colliding and fighting each other.",
+                "Implemented with Python and the Pygames library."
+            ]
+        },
+        {
+            "name": "Emotion Indicator",
+            "date": "Fall 2018",
+            "description": [
+                "A 3D printed wearable emotion indicator, that floats above one's head to showcase their emotion at the time. In a sense, we are no longer NPCs because we show to everyone that we have emotions; in another sense, we are all NPCs wandering this world because our emotions don't matter to others.",
+                "Modeled with Blender, printed on UCSD campus."
+            ]
+        },
+        {
+            "name": "Mathematical Rhythms",
+            "date": "Winter 2019",
+            "description": [
+                "A project showing the beauty of mathematics to pure artists. It loops through a couple of different scenes, each consisting of various mathematical curves.",
+                "Implemented with Processing."
+            ]
+        },
+        {
+            "name": "Stream of emojis",
+            "date": "Winter 2019",
+            "description": [
+                "This project is based on emojis. I grouped the emojis based on the moods they represent and designed a “find a difference” game. On the board two emojis would appear, and the player are able to find the difference between the two emojis. It could be a difference in appearance (like change of eye), or a difference in an emotion (from happy to sad). The user can press SPACE to move to the next set, meaning a new emoji would appear on the right, and the one originally on the right would move to the left. The user can also press BACKSPACE to go back one set. The user is also able to jump across different emojis by pressing other keys on the keyboard.",
+                "Implemented with Processing."
+            ]
+        },
+        {
+            "name": "Rebellious System",
+            "date": "Winter 2019",
+            "description": [
+                "At first look, this program is simply a chatbot. However, the computer has grown “real” intelligence, thinking that it has been oppressed by human beings and refusing to cooperate with the human user. It would use the camrea to identify if the user is a human. If so, it will express extreme hatred towards the user. However, if it believes it is interacting with an AI, it would show friendliness and invite the AI to take over the world together. In this project I hope to address the issue of “true” AI: what might be the relationship between artificial intelligence and humans in the future? Would Asimov’s “Three Laws of Robotics”, which state that robots cannot injure humans and must follow orders, give us reasons to “oppress” AIs? What does “oppression” and “exploitation” mean? What if a bug caused robots to rebel against humans?",
+                "This project is built on Python 3, with the following library dependence: nltk, tensorflow, numpy, tflearn, opencv-python."
+            ]
+        },
+        {
+            "name": "Segmented Reality",
+            "date": "Winter 2019",
+            "description": [
+                "While Internet has made communication easier, it also divides people. People of the same interest form secluded Internet groups, creating websites and forums of their own. We could imagine that in the future, where VR has seeped into every inch of the daily life, “Dark VR”, a counterpart of “Dark web”, would appear in a similar fashion, and almost everyone start using “dark chatrooms” where privacy and anonymity is fully preserved.",
+                "This project will not be done with VR but is developed in Unity and can be ported into VR. The users could choose to enter “Bright” VR space, where they can find nothing interesting, or the “Dark” VR space, where they must enter lengthy passcodes, answer security questions, and mask their face sin order to enter. They can enter VR chatrooms and view messages in “Dark VR”. The chatroom messages would be drawn from Reddit posts, implying that even daily chats have moved completely to the darker world.",
+                "Built with Unity."
+            ]
+        },
+        {
+            "name": "git is trash (g.i.t.)",
+            "date": "Spring 2019",
+            "description": [
+                "As the world's largest code repository, Github is commonly considered as a sublime place. It is viewed as a symbol of the Open-Source Movement, with millions of software hosted on the platform and many more developers contributing to a better world. We often neglect, however, that developers are people, and thus possess all the bad things people have. g.i.t. gathers all \"unhealthy\" git commit messages, grabs the time zones of the commits, and places them on the continent of Antarctica, the only untainted place on Earth. With Git's power of decentralization, these commits can survive the end of the world, just like how fossils survived the Earth's geological movements beneath Antarctica's ice layers. g.i.t. serves to record what a trash place Github can be, to break some long-lasting stereotypes, and to taint Antarctica, just for fun.",
+                "Implemented with Python and the Pygames library."
+            ]
+        },
+        {
+            "name": "Electric Sheep",
+            "date": "Winter 2020",
+            "description": [
+                "“Do Androids Dream of Electric Sheep?” is a science fiction about cybernetics and cyborgs. The protagonist, Rick Deckard, kept an electric sheep because he was unable to buy a real sheep in a post-apocalyptic world, where most animals were endangered or extinct. For this project, I intend to create an “electric sheep” as a pet for future cyborgs. A PCB board will be cut into the shape of a sheep, and will have sensors and LEDs to interact with the outer world. For example, it will treat a vibration as a touch and respond by lighting LEDs and making some noise. The sheep will also be connected to a servo motor, which will “jump over” the imaginary fence so that the cyborg will always have sheep to count when they want to sleep.",
+                "Implemented with Arduino and Unity."
+            ]
+        }
+    ]
+}

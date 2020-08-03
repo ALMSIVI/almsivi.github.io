@@ -1,6 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { FormattedMessage } from 'gatsby-plugin-intl'
 
 const Anchor = (props: { href: string }) => (
     <a
@@ -31,7 +32,7 @@ export default function Footer() {
                     padding: 1rem 0 0 1rem;
                 `}
             >
-                Contact
+                <FormattedMessage id="contact" />
             </h2>
             <ul
                 css={css`

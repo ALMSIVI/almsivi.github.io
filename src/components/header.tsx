@@ -1,20 +1,10 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link, FormattedMessage } from 'gatsby-plugin-intl'
 import Navigation from './navigation'
 import { css } from '@emotion/core'
 import styles from '../utils/styles'
 
 export default function Header({ current }) {
-    const data = useStaticQuery(graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `)
-
     return (
         <header
             css={css`
@@ -39,7 +29,7 @@ export default function Header({ current }) {
                     id="title"
                     css={css`
                         margin-top: 2rem;
-                        
+
                         @media (min-width: ${styles.mobileBreakpoint}) {
                             position: absolute;
                             top: ${styles.contentTop};
@@ -62,7 +52,7 @@ export default function Header({ current }) {
                                 display: inline;
                             `}
                         >
-                            {data.site.siteMetadata.title}
+                            <FormattedMessage id="title" />
                         </h1>
                     </Link>
                     <Navigation current={current} vertical={false} />

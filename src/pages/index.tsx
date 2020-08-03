@@ -7,6 +7,9 @@ import Board from '../components/board'
 import { css } from '@emotion/core'
 import styles from '../utils/styles'
 import Container from '../components/container'
+import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
+import qnaEn from '../data/i18n/qna-en.json'
+import qnaZh from '../data/i18n/qna-zh.json'
 
 const Section = ({ children }) => (
     <section
@@ -15,8 +18,10 @@ const Section = ({ children }) => (
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            align-items: flex-start;
             @media (max-width: ${styles.mobileBreakpoint}) {
                 margin: 0.5rem;
+                justify-content: center;
             }
         `}
     >
@@ -26,16 +31,16 @@ const Section = ({ children }) => (
 
 export const query = graphql`
     query {
-        file(relativePath: {eq: "Profile.jpg"}) {
+        file(relativePath: { eq: "Profile.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 800, maxHeight: 800) {
-                        ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid
                 }
             }
         }
     }
 `
-const Profile = ({src}) => (
+const Profile = ({ src }) => (
     <div
         css={css`
             width: ${styles.profileBorderSize};
@@ -64,7 +69,7 @@ const Profile = ({src}) => (
     </div>
 )
 
-const Intro = ({src}) => (
+const Intro = ({ src }) => (
     <Section>
         <Profile src={src} />
         <div
@@ -78,8 +83,12 @@ const Intro = ({src}) => (
                 }
             `}
         >
-            <h1>Yue Wu</h1>
-            <p>Computer science student at UC San Diego. New Media Artist.</p>
+            <h1>
+                <FormattedMessage id="title" />
+            </h1>
+            <p>
+                <FormattedMessage id="description" />
+            </p>
             <hr />
             <Navigation current="/" vertical={true} />
             <Socials />
@@ -90,53 +99,47 @@ const Intro = ({src}) => (
 const Details = () => (
     <Section>
         <Board>
-            <p>Pronunciation: Yu-eh Wu</p>
-            <p>Place of birth: Shanghai, China</p>
-            <p>Current Location: San Diego, California, US</p>
+            <p>
+                <FormattedMessage id="detail1" />
+            </p>
+            <p>
+                <FormattedMessage id="detail2" />
+            </p>
+            <p>
+                <FormattedMessage id="detail3" />
+            </p>
         </Board>
-        <Board width="30rem">
-            I am currently a Master's student in Computer Science at UC San Diego. I also earned my Bachelor's degree
-            here. I minored in Visual Arts at Computing and Arts. I am proficient in Unity programming and web
-            programming. During my spare time, I love listening to metal music and playing video games.
+        <Board width="33rem">
+            <FormattedMessage id="detail4" />
         </Board>
     </Section>
 )
 
-const Question = ({ children }) => (
-    <h3
-        css={css`
-            margin-top: 0;
-            margin-bottom: 1rem;
-        `}
-    >
-        {children}
-    </h3>
+const Question = ({ question, answer }) => (
+    <Board>
+        <h3
+            css={css`
+                margin-top: 0;
+                margin-bottom: 1rem;
+            `}
+        >
+            {question}
+        </h3>
+        <p dangerouslySetInnerHTML={{ __html: answer }} />
+    </Board>
 )
-const QnA = () => (
-    <Section>
-        <Board>
-            <Question>What is the meaning of my Github username "ALMSIVI"?</Question>
-            <p>
-                The name comes from the Elder Scrolls, the RPG series by Bethesda. It refers to the three gods of the
-                Dark Elf: <b>Alm</b>alexia, Sotha <b>Si</b>l, and <b>Vi</b>vec. They are the center of the game's lores,
-                and their <a href="https://elderscrolls.fandom.com/wiki/36_Lessons_of_Vivec">36 lessons</a> have
-                intrigued counteless ES enthusiasts. In the third game Morrowind, the protagonist will encounter them.
-                for more information, you can refer to{' '}
-                <a href="https://elderscrolls.fandom.com/wiki/Tribunal">the wiki page</a>.
-            </p>
-        </Board>
-        <Board>
-            <Question>What is my Github profile picture?</Question>
-            <p>
-                This is the cover of Damnation Angel's album,{' '}
-                <a href="https://www.metal-archives.com/albums/Damnation_Angels/The_Valiant_Fire/488063">
-                    The Valiant Fire
-                </a>
-                . This is a great power metal album, and is enjoyable even for non-metalheads.
-            </p>
-        </Board>
-    </Section>
-)
+
+const QnA = () => {
+    const locale = useIntl().locale
+    const qna = locale === 'en' ? qnaEn : qnaZh
+    return (
+        <Section>
+            {qna.qna.map((qa, index) => (
+                <Question key={index} question={qa.question} answer={qa.answer} />
+            ))}
+        </Section>
+    )
+}
 
 export default function Home({ data }) {
     return (

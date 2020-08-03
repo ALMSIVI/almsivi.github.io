@@ -107,7 +107,7 @@
             "hide": false,
             "bullets": [
                 "An interactive story web app, with React as front end and Express as back end.",
-                "Implemented a user system with Postgresql where users can write stories, continue others' stories and rate their writing.",
+                "Implemented a user system with MongoDB where users can write stories, continue others' stories and rate their writing.",
                 "Achieved responsive UI through React and Emotion, a CSS-in-JS framework."
             ]
         },

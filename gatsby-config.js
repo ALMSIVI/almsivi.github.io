@@ -22,5 +22,14 @@ module.exports = {
             resolve: `gatsby-source-filesystem`,
             options: { name: `data`, path: `${__dirname}/src/data/` },
         },
+        {
+            resolve: `gatsby-plugin-intl`,
+            options: {
+                path: `${__dirname}/src/data/i18n`,
+                languages: [`en`, `zh`],
+                defaultLanguage: `en`,
+                redirect: true
+            }
+        }
     ],
 }

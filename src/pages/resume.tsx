@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { css } from '@emotion/core'
+import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
 import Layout from '../components/layout'
 import Board from '../components/board'
-import * as resume from '../data/resume.json'
 import styles from '../utils/styles'
+import resumeEn from '../data/i18n/resume-en.json'
+import resumeZh from '../data/i18n/resume-zh.json'
 
 const titleStyle = css`
     font-weight: bold;
@@ -208,31 +210,36 @@ const Project = ({ name, position, date, link, bullets }) => (
                 margin-bottom: 1rem;
             `}
         >
-            <a href={link}>Link to repository</a>
+            <a href={link}>
+                <FormattedMessage id="repository" />
+            </a>
         </div>
         <BulletList bullets={bullets} />
     </Board>
 )
 
 export default function Resume({ data }) {
+    const intl = useIntl()
+    const resume = intl.locale === 'en' ? resumeEn : resumeZh
+
     return (
         <Layout current="/resume">
             <section>
-                <h2>About</h2>
+                <h2>
+                    <FormattedMessage id="about" />
+                </h2>
                 <Board>
                     <p>
-                        This resume is about my experiences as a computer science student. For my projects as an ICAM
-                        student, see <Link to="/portfolio">Portfolio</Link>.
+                        <FormattedMessage id="resume1" />
                     </p>
-                    <p>
-                        For a pdf version, see{' '}
-                        <a href="https://github.com/ALMSIVI/Resume/blob/master/resume.pdf">here</a>.
-                    </p>
+                    <p dangerouslySetInnerHTML={{ __html: intl.formatMessage({ id: 'resume2' }) }} />
                     {resume.comments.include && <p>{resume.comments.position}</p>}
                 </Board>
             </section>
             <section>
-                <h2>Education</h2>
+                <h2>
+                    <FormattedMessage id="education" />
+                </h2>
                 <Board>
                     <Title
                         bold={resume.education.name}
@@ -240,25 +247,35 @@ export default function Resume({ data }) {
                         right={resume.education.time}
                     />
                     <ul>
-                        <li> Cumulative GPA: {resume.education.gpa}</li>
-                        <li>Courses taken: {resume.education.courses.join(', ')}</li>
+                        <li>
+                            <FormattedMessage id="gpa" /> {resume.education.gpa}
+                        </li>
+                        <li>
+                            <FormattedMessage id="courses" /> {resume.education.courses.join(', ')}
+                        </li>
                     </ul>
                 </Board>
             </section>
             <section>
-                <h2>Skills</h2>
+                <h2>
+                    <FormattedMessage id="skills" />
+                </h2>
                 <Skillset title="Language" skills={resume.skills.language} />
                 <Skillset title="Frameworks" skills={resume.skills.framework} />
                 <Skillset title="Software" skills={resume.skills.software} />
             </section>
             <section>
-                <h2>Work Experiences</h2>
+                <h2>
+                    <FormattedMessage id="work" />
+                </h2>
                 {resume.work.map((work, index) => (
                     <Work key={index} {...work} imgSrc={data[work.image].childImageSharp.fluid} />
                 ))}
             </section>
             <section>
-                <h2>Selected Projects</h2>
+                <h2>
+                    <FormattedMessage id="projects" />
+                </h2>
                 {resume.projects.map((project, index) => (
                     <Project key={index} {...project} />
                 ))}

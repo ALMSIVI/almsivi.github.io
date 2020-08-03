@@ -8,7 +8,7 @@ export default function Layout({ current, children }) {
     return (
         <Container>
             <Header current={current} />
-            <div
+            <main
                 css={css`
                     margin: 0.5rem;
 
@@ -20,7 +20,7 @@ export default function Layout({ current, children }) {
                 `}
             >
                 {children}
-            </div>
+            </main>
         </Container>
     )
 }
