@@ -70,7 +70,7 @@ export default function Navigation({ current, vertical }) {
                 <ListLink to="/portfolio" current={current} vertical={vertical}>
                     <FormattedMessage id="portfolio" />
                 </ListLink>
-                <Language vertical={vertical} />
+                {/*<Language vertical={vertical} />*/}
             </ul>
         </nav>
     )

@@ -1,3 +1,11 @@
+# Personal Website
+
+This personal webstie is built with Gatsby and React. It uses `emotion` as a CSS-in-JS libaray, and `react-intl` for localization (currently not available).
+
+Below is the original Gatsby README.
+
+-----
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">

@@ -146,7 +146,7 @@ export default function Home({ data }) {
     const intl = useIntl()
     return (
         <Container>
-            <SEO title={intl.formatMessage({ id: 'title' })} />
+            <SEO title={intl.formatMessage({ id: 'home' })} />
             <Intro src={data.file.childImageSharp.fluid} />
             <Details />
             <hr />

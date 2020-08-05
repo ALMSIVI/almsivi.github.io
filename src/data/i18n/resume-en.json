@@ -107,8 +107,8 @@
             "hide": false,
             "bullets": [
                 "An interactive story web app, with React as front end and Express as back end.",
-                "Implemented a user system with MongoDB where users can write stories, continue others' stories and rate their writing.",
-                "Achieved responsive UI through React and Emotion, a CSS-in-JS framework."
+                "Constructed the React framework from scratch with Webpack and Babel, and configured css-in-js for various UI components.",
+                "Implemented a user system with MongoDB where users can write stories, continue others' stories and rate their writing."
             ]
         },
         {
@@ -118,9 +118,9 @@
             "link": "https://github.com/TritonXR/Mechsuit-VR",
             "hide": false,
             "bullets": [
-                "Joined the school's Virtual Reality Club to work on a Unity fighting game featuring Steam VR (Vive).",
-                "Implemented the inverse kinematic system for the armor using the positions of the VR headset and hand-held controllers, which boosted player control efficiency.",
-                "Programmed a propulsion system with player movements as input, enabling motion control for players, who would physically move to traverse through the arena instead of using the joystick.",
+                "Joined the school's Virtual Reality Club to work on a Unity fighting game featuring Steam VR (HTCVive).",
+                "Implemented a inverse kinematic system using the positions of the VR headset and hand-held controllers, improving player experience and controls.",
+                "Programmed a propulsion system with player movements as input, enabling motion control for players, who would physically move to traverse instead of using the joystick.",
                 "Designed health and weapon systems, and UI for health and ammo display using MVC, writing scripts with Strategy Pattern so that they can be easily extended for various damage types and player resistances."
             ]
         },
