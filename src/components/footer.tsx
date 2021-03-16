@@ -45,7 +45,7 @@ export default function Footer() {
                     <FaGithub /> Github: <Anchor href="https://github.com/ALMSIVI" />
                 </li>
                 <li>
-                    <FaLinkedin /> LinkedIn: <Anchor href="https://www.linkedin.com/in/yue-wu-aaab2213b/" />
+                    <FaLinkedin /> LinkedIn: <Anchor href="https://www.linkedin.com/in/yuewu-almsivi/" />
                 </li>
                 <li>
                     <FaEnvelope /> Email: <Anchor href="yuw264@ucsd.edu" />
