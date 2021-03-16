@@ -90,8 +90,13 @@ export const query = graphql`
         LMT: file(relativePath: { eq: "LMT.jpg" }) {
             ...squareImage
         }
+
+        UCSDHealth: file(relativePath: { eq: "UCSDHealth.jpg" }) {
+            ...squareImage
+        }
     }
 `
+
 const Picture = ({ src }) => (
     <div
         css={css`
@@ -174,7 +179,8 @@ const BulletList = ({ bullets }) => (
         ))}
     </ul>
 )
-const Work = ({ position, company, location, date, image, bullets, imgSrc }) => (
+
+const Work = ({ position, company, location, date, bullets, imgSrc }) => (
     <Board>
         <div
             css={css`
@@ -219,6 +225,19 @@ const Project = ({ name, position, date, link, bullets }) => (
     </Board>
 )
 
+const Education = ({ degree, date, gpa, msg }) => (
+    <li>
+        {degree} {msg !== '' ? <FormattedMessage id={msg} /> : ''} (GPA: {gpa})
+        <span
+            css={css`
+                float: right;
+            `}
+        >
+            {date}
+        </span>
+    </li>
+)
+
 export default function Resume({ data }) {
     const intl = useIntl()
     const resume = intl.locale === 'en' ? resumeEn : resumeZh
@@ -243,15 +262,20 @@ export default function Resume({ data }) {
                     <FormattedMessage id="education" />
                 </h2>
                 <Board>
-                    <Title
-                        bold={resume.education.name}
-                        italics={resume.education.degree}
-                        right={resume.education.time}
-                    />
+                    <Title bold={resume.education.name} italics="" right="" />
                     <ul>
-                        <li>
-                            <FormattedMessage id="gpa" /> {resume.education.gpa}
-                        </li>
+                        <Education
+                            degree={resume.education.bs}
+                            gpa={resume.education.bsgpa}
+                            date={resume.education.bsdate}
+                            msg="bsmsg"
+                        />
+                        <Education
+                            degree={resume.education.ms}
+                            gpa={resume.education.msgpa}
+                            date={resume.education.msdate}
+                            msg=""
+                        />
                         <li>
                             <FormattedMessage id="courses" /> {resume.education.courses.join(', ')}
                         </li>

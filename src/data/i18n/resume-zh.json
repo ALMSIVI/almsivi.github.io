@@ -5,17 +5,20 @@
         "phone": "(+1) (858) 666-5847",
         "website": "https://almsivi.github.io",
         "github": "https://github.com/ALMSIVI",
-        "linkedin": "https://www.linkedin.com/in/yue-wu-aaab2213b/"
+        "linkedin": "https://www.linkedin.com/in/yuewu-almsivi"
     },
     "comments": {
         "position": "我正在寻找2021年暑期实习的机会。",
-        "include": true
+        "include": false
     },
     "education": {
         "name": "加州大学圣地亚哥分校",
-        "degree": "专业：计算机科学（B.S.与 M.S.）",
-        "time": "2016/09-2021/12",
-        "gpa": "3.92/4",
+        "bs": "专业：计算机科学（B.S）",
+        "bsdate": "2016/09-2020/06",
+        "bsgpa": "3.92/4",
+        "ms": "专业：计算机科学（M.S.）",
+        "msdate": "2020/09-2021/12",
+        "msgpa": "4/4",
         "courses": [
             "数据结构",
             "算法",
@@ -62,6 +65,18 @@
     },
     "work": [
         {
+            "position": "研究助理",
+            "company": "UCSD校医院",
+            "location": "加州圣地亚哥",
+            "date": "2020/10至今",
+            "image": "UCSDHealth",
+            "bullets": [
+                "进行关于精神分裂症的研究项目，将患者置于VR环境之下，研究其大脑活动。",
+                "优化已有的VR应用以满足时间和测量的要求，将音频延迟从高于100ms降低至稳定的35ms。",
+                "创建新的VR场景，增加音频样式，使得研究员可以进行更加详细的测试，获取更好的数据。"
+            ]
+        },
+        {
             "position": "Unity开发者",
             "company": "UCSD Qualcomm Institute",
             "location": "加州拉霍亚",
@@ -80,7 +95,7 @@
             "date": "2019/06-2019/08",
             "image": "Alibaba",
             "bullets": [
-                "基于力导向图原理和Sugiyama算法，用Typescript搭建了一个对图类结构进行3维可视化的库，以替换turf.js。",
+                "基于力导向图原理和Sugiyama算法，用Typescript搭建对图类结构进行3D可视化的库，以替换turf.js。",
                 "基于Marching Square算法开发了一套地理模型生成服务，比turf.js自带算法精确100倍，并用于阿里9号馆及双11等数据大屏展示中。",
                 "与达摩院的裸眼3D团队合作，研究3维空间下基于Unity/WebGL的人机交互和数据可视化。探索了Entitas框架并编写Shader实现多样的视觉效果。"
             ]
@@ -102,7 +117,7 @@
         {
             "name": "Exteractive",
             "position": "全栈工程师",
-            "date": "2020/07至今",
+            "date": "2020/07-2020/10",
             "link": "https://github.com/ALMSIVI/exteractive",
             "hide": false,
             "bullets": [
@@ -119,7 +134,7 @@
             "hide": false,
             "bullets": [
                 "学校虚拟现实俱乐部的小组项目，使用Steam VR和Unity开发基于HTC Vive设备的VR游戏。",
-                "实现了逆运动学系统，通过VR眼镜和手柄的位置来控制机甲手臂的位置，增加代入感和玩家控制机甲的效率。",
+                "实现逆运动学系统，通过VR眼镜和手柄的位置来控制机甲手臂的位置，增加代入感和玩家控制机甲的效率。",
                 "编写动力系统，以玩家在物理空间中的移动作为输入，对虚拟空间中的机甲带来推力，玩家无需使用手柄来移动机甲，这种操纵方式给予玩家身临其境之感。",
                 "设计了生命值系统与武器系统，并使用MVC模型设计了生命值与弹药显示的UI。利用策略模式等设计模式，编写脚本使得开发人员能迅速增加其他伤害类型与机甲抗性。"
             ]
@@ -129,7 +144,7 @@
             "position": "全栈工程师",
             "date": "2018/04-2018/06",
             "link": "https://github.com/ALMSIVI/TransRacer",
-            "hide": false,
+            "hide": true,
             "bullets": [
                 "4人小组项目，共同开发网页app，前端使用Bootstrap，后端使用Node.js。用户通过翻译歌词来学习外语。",
                 "使用sqlite编写所有数据库逻辑，数据库用于存储歌曲与用户得分，用户可将喜欢的歌曲上传到网站以练习。",
