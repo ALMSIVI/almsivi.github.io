@@ -227,7 +227,7 @@ const Project = ({ name, position, date, link, bullets }) => (
 
 const Education = ({ degree, date, gpa, msg }) => (
     <li>
-        {degree} {msg !== '' ? <FormattedMessage id={msg} /> : ''} (GPA: {gpa})
+        {degree} {msg && <FormattedMessage id={msg} />} (GPA: {gpa})
         <span
             css={css`
                 float: right;
@@ -294,9 +294,12 @@ export default function Resume({ data }) {
                 <h2>
                     <FormattedMessage id="work" />
                 </h2>
-                {resume.work.map((work, index) => (
+                {resume.work.map((work, index) => {
+                    console.log(data)
+                    console.log(work.image)
+                    return (
                     <Work key={index} {...work} imgSrc={data[work.image].childImageSharp.fluid} />
-                ))}
+                )})}
             </section>
             <section>
                 <h2>
