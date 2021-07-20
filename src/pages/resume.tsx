@@ -94,6 +94,10 @@ export const query = graphql`
         UCSDHealth: file(relativePath: { eq: "UCSDHealth.jpg" }) {
             ...squareImage
         }
+
+        okta: file(relativePath: { eq: "okta.png" }) {
+            ...squareImage
+        }
     }
 `
 
