@@ -1,6 +1,5 @@
-import React from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const Item = props => (
     <a
@@ -23,13 +22,13 @@ export default function Socials() {
                 margin-left: 0;
             `}
         >
-            <Item href="mailto:yuw264@ucsd.edu">
+            <Item href="mailto:wuyuejl97@gmail.com">
                 <FaEnvelope />
             </Item>
             <Item href="https://github.com/ALMSIVI">
                 <FaGithub />
             </Item>
-            <Item href="https://www.linkedin.com/in/yue-wu-aaab2213b/">
+            <Item href="https://www.linkedin.com/in/yuewu-almsivi/">
                 <FaLinkedin />
             </Item>
         </ul>

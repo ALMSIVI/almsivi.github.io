@@ -1,6 +1,6 @@
-import React from 'react'
-import { css } from '@emotion/core'
-import { Link, useIntl, changeLocale, FormattedMessage } from 'gatsby-plugin-intl'
+import { css } from '@emotion/react'
+import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
 import styles from '../utils/styles'
 
 // On small screen sizes, still resort to horizontal list
@@ -26,18 +26,18 @@ const item = css`
     text-shadow: none;
 `
 
-const ListLink = ({ to, current, vertical, children, ...props }) => {
-    if (to == current) {
+const ListLink = ({ href, current, vertical, children, ...props }) => {
+    if (href === current) {
         return (
-            <li key={to} css={horizontalItem}>
+            <li key={href} css={horizontalItem}>
                 {children}
             </li>
         )
     }
 
     return (
-        <li key={to} css={vertical ? listItem : horizontalItem}>
-            <Link to={to} {...props} css={item}>
+        <li key={href} css={vertical ? listItem : horizontalItem}>
+            <Link href={href} {...props} css={item}>
                 {children}
             </Link>
         </li>
@@ -45,32 +45,34 @@ const ListLink = ({ to, current, vertical, children, ...props }) => {
 }
 
 const Language = ({ vertical }) => {
-    const locale = useIntl().locale
+    const { t, i18n } = useTranslation()
+    const locale = i18n.language
     const otherLocale = locale === 'en' ? 'zh' : 'en'
     return (
         <li css={vertical ? listItem : horizontalItem}>
-            <a onClick={() => changeLocale(otherLocale)} css={item}>
-                <FormattedMessage id="otherLang" />
+            <a onClick={() => i18n.changeLanguage(otherLocale)} css={item}>
+                {t('otherLang')}
             </a>
         </li>
     )
 }
 
 export default function Navigation({ current, vertical }) {
+    const { t } = useTranslation()
     const listStyle = vertical ? [baseList, verticalList] : baseList
     return (
         <nav>
             <ul css={listStyle}>
-                <ListLink to="/" current={current} vertical={vertical}>
-                    <FormattedMessage id="home" />
+                <ListLink href="/" current={current} vertical={vertical}>
+                    {t('home')}
                 </ListLink>
-                <ListLink to="/resume" current={current} vertical={vertical}>
-                    <FormattedMessage id="resume" />
+                <ListLink href="/resume" current={current} vertical={vertical}>
+                    {t('resume')}
                 </ListLink>
-                <ListLink to="/portfolio" current={current} vertical={vertical}>
-                    <FormattedMessage id="portfolio" />
+                <ListLink href="/portfolio" current={current} vertical={vertical}>
+                    {t('portfolio')}
                 </ListLink>
-                {/*<Language vertical={vertical} />*/}
+                <Language vertical={vertical} />
             </ul>
         </nav>
     )

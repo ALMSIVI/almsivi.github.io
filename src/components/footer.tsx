@@ -1,7 +1,6 @@
-import React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
+import { useTranslation } from 'react-i18next'
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
-import { FormattedMessage } from 'gatsby-plugin-intl'
 
 const Anchor = (props: { href: string }) => (
     <a
@@ -18,6 +17,7 @@ const Anchor = (props: { href: string }) => (
 )
 
 export default function Footer() {
+    const { t } = useTranslation()
     return (
         <footer
             css={css`
@@ -32,7 +32,7 @@ export default function Footer() {
                     padding: 1rem 0 0 1rem;
                 `}
             >
-                <FormattedMessage id="contact" />
+                <p>{t('contact')}</p>
             </h2>
             <ul
                 css={css`

@@ -1,10 +1,11 @@
-import React from 'react'
-import { Link, FormattedMessage } from 'gatsby-plugin-intl'
+import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
+import { css } from '@emotion/react'
 import Navigation from './navigation'
-import { css } from '@emotion/core'
 import styles from '../utils/styles'
 
 export default function Header({ current }) {
+    const { t } = useTranslation()
     return (
         <header
             css={css`
@@ -39,7 +40,7 @@ export default function Header({ current }) {
                     `}
                 >
                     <Link
-                        to="/"
+                        href="/"
                         css={css`
                             display: block;
                             text-shadow: none;
@@ -52,7 +53,7 @@ export default function Header({ current }) {
                                 display: inline;
                             `}
                         >
-                            <FormattedMessage id="title" />
+                            <p>{t('title')}</p>
                         </h1>
                     </Link>
                     <Navigation current={current} vertical={false} />

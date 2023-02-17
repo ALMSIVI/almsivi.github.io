@@ -4,7 +4,7 @@ const styles = {
     contentTop: '200px',
     profileBorderSize: '500px',
     bubbleColor: '#aedef5',
-    mobileBreakpoint: '800px'
+    mobileBreakpoint: '800px',
 }
 
 export default styles

@@ -1,5 +1,4 @@
-import React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import Footer from './footer'
 
 export default function Container({ children }) {

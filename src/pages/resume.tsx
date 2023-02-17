@@ -1,8 +1,6 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import { css } from '@emotion/core'
-import { FormattedMessage, useIntl } from 'gatsby-plugin-intl'
+import Image from 'next/image'
+import { css } from '@emotion/react'
+import { useTranslation } from 'react-i18next'
 import Layout from '../components/layout'
 import Board from '../components/board'
 import styles from '../utils/styles'
@@ -67,40 +65,6 @@ const Skillset = ({ title, skills }) => (
     </Board>
 )
 
-export const squareImage = graphql`
-    fragment squareImage on File {
-        childImageSharp {
-            fluid(maxHeight: 200) {
-                ...GatsbyImageSharpFluid
-            }
-        }
-    }
-`
-
-export const query = graphql`
-    query {
-        QI: file(relativePath: { eq: "QI.png" }) {
-            ...squareImage
-        }
-
-        Alibaba: file(relativePath: { eq: "Alibaba.png" }) {
-            ...squareImage
-        }
-
-        LMT: file(relativePath: { eq: "LMT.jpg" }) {
-            ...squareImage
-        }
-
-        UCSDHealth: file(relativePath: { eq: "UCSDHealth.jpg" }) {
-            ...squareImage
-        }
-
-        okta: file(relativePath: { eq: "okta.png" }) {
-            ...squareImage
-        }
-    }
-`
-
 const Picture = ({ src }) => (
     <div
         css={css`
@@ -113,9 +77,11 @@ const Picture = ({ src }) => (
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         `}
     >
-        <Img
-            fluid={src}
+        <Image
+            src={src}
             alt="Company logo"
+            width={200}
+            height={200}
             css={css`
                 position: absolute;
                 top: 50%;
@@ -212,59 +178,57 @@ const Work = ({ position, company, location, date, bullets, imgSrc }) => (
     </Board>
 )
 
-const Project = ({ name, position, date, link, bullets }) => (
-    <Board>
-        <Title bold={name} italics={position} right={date} />
-        <div
-            css={css`
-                display: block;
-                margin-bottom: 1rem;
-            `}
-        >
-            <a href={link}>
-                <FormattedMessage id="repository" />
-            </a>
-        </div>
-        <BulletList bullets={bullets} />
-    </Board>
-)
+const Project = ({ name, position, date, link, bullets }) => {
+    const { t } = useTranslation()
+    return (
+        <Board>
+            <Title bold={name} italics={position} right={date} />
+            <div
+                css={css`
+                    display: block;
+                    margin-bottom: 1rem;
+                `}
+            >
+                <a href={link}>{t('repository')}</a>
+            </div>
+            <BulletList bullets={bullets} />
+        </Board>
+    )
+}
 
-const Education = ({ degree, date, gpa, msg }) => (
-    <li>
-        {degree} {msg && <FormattedMessage id={msg} />} (GPA: {gpa})
-        <span
-            css={css`
-                float: right;
-            `}
-        >
-            {date}
-        </span>
-    </li>
-)
+const Education = ({ degree, date, gpa, msg }) => {
+    const { t } = useTranslation()
+    return (
+        <li>
+            {degree} {msg && t(msg)} (GPA: {gpa})
+            <span
+                css={css`
+                    float: right;
+                `}
+            >
+                {date}
+            </span>
+        </li>
+    )
+}
 
 export default function Resume({ data }) {
-    const intl = useIntl()
-    const resume = intl.locale === 'en' ? resumeEn : resumeZh
+    const { t, i18n } = useTranslation()
+    const resume = i18n.language === 'en' ? resumeEn : resumeZh
 
     return (
         <Layout current="/resume">
-            <SEO title={intl.formatMessage({ id: 'resume' })} />
+            <SEO title={t('resume')} />
             <section>
-                <h2>
-                    <FormattedMessage id="about" />
-                </h2>
+                <h2>{t('about')}</h2>
                 <Board>
-                    <p>
-                        <FormattedMessage id="resume1" />
-                    </p>
-                    <p dangerouslySetInnerHTML={{ __html: intl.formatMessage({ id: 'resume2' }) }} />
+                    <p>{t('resume1')}</p>
+                    <p dangerouslySetInnerHTML={{ __html: t('resume2') }} />
                     {resume.comments.include && <p>{resume.comments.position}</p>}
                 </Board>
             </section>
             <section>
-                <h2>
-                    <FormattedMessage id="education" />
-                </h2>
+                <h2>{t('education')}</h2>
                 <Board>
                     <Title bold={resume.education.name} italics="" right="" />
                     <ul>
@@ -281,34 +245,25 @@ export default function Resume({ data }) {
                             msg=""
                         />
                         <li>
-                            <FormattedMessage id="courses" /> {resume.education.courses.join(', ')}
+                            {t('courses')} {resume.education.courses.join(', ')}
                         </li>
                     </ul>
                 </Board>
             </section>
             <section>
-                <h2>
-                    <FormattedMessage id="skills" />
-                </h2>
+                <h2>{t('skills')}</h2>
                 <Skillset title="Language" skills={resume.skills.language} />
                 <Skillset title="Frameworks" skills={resume.skills.framework} />
                 <Skillset title="Software" skills={resume.skills.software} />
             </section>
             <section>
-                <h2>
-                    <FormattedMessage id="work" />
-                </h2>
+                <h2>{t('work')}</h2>
                 {resume.work.map((work, index) => {
-                    console.log(data)
-                    console.log(work.image)
-                    return (
-                    <Work key={index} {...work} imgSrc={data[work.image].childImageSharp.fluid} />
-                )})}
+                    return <Work key={index} {...work} imgSrc={`/${work.image}`} />
+                })}
             </section>
             <section>
-                <h2>
-                    <FormattedMessage id="projects" />
-                </h2>
+                <h2>{t('projects')}</h2>
                 {resume.projects.map((project, index) => (
                     <Project key={index} {...project} />
                 ))}

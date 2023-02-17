@@ -69,7 +69,7 @@
             "company": "UCSD校医院",
             "location": "加州圣地亚哥",
             "date": "2020/10至今",
-            "image": "UCSDHealth",
+            "image": "UCSDHealth.jpg",
             "bullets": [
                 "进行关于精神分裂症的研究项目，将患者置于VR环境之下，研究其大脑活动。",
                 "优化已有的VR应用以满足时间和测量的要求，将音频延迟从高于100ms降低至稳定的35ms。",
@@ -81,7 +81,7 @@
             "company": "UCSD Qualcomm Institute",
             "location": "加州拉霍亚",
             "date": "2018/10至今",
-            "image": "QI",
+            "image": "QI.png",
             "bullets": [
                 "为美国普华永道的Bodylogical系统开发iOS AR应用。",
                 "在Unity中设计并实现了3套不同的可视化模组，数据以时间排列，分布在3维空间中，用户可以方便地理解Body logical的核心功能。",
@@ -93,7 +93,7 @@
             "company": "阿里巴巴集团",
             "location": "中国杭州",
             "date": "2019/06-2019/08",
-            "image": "Alibaba",
+            "image": "Alibaba.png",
             "bullets": [
                 "基于力导向图原理和Sugiyama算法，用Typescript搭建对图类结构进行3D可视化的库，以替换turf.js。",
                 "基于Marching Square算法开发了一套地理模型生成服务，比turf.js自带算法精确100倍，并用于阿里9号馆及双11等数据大屏展示中。",
@@ -105,7 +105,7 @@
             "company": "莱曼特信息科技",
             "location": "中国上海",
             "date": "2018/06-2018/08",
-            "image": "LMT",
+            "image": "LMT.jpg",
             "bullets": [
                 "参加软件的改版，从Flash迁移至HTML5。减少代码量，加快运行速度。",
                 "完善产品的本地化与响应式UI界面，使其对外国用户更加友好，提升用户体验。",

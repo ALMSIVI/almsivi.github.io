@@ -1,5 +1,4 @@
-import React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import styles from '../utils/styles'
 
 export default function Board({ color = 'aliceblue', width = 'auto', children }) {

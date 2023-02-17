@@ -1,29 +1,13 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { css } from '@emotion/core'
-import { Link, FormattedMessage, useIntl } from 'gatsby-plugin-intl'
+import { useTranslation } from 'react-i18next'
+import { css } from '@emotion/react'
+import Link from 'next/link'
 import Layout from '../components/layout'
 import Board from '../components/board'
 import portfolioEn from '../data/i18n/portfolio-en.json'
 import portfolioZh from '../data/i18n/portfolio-zh.json'
 import SEO from '../components/seo'
-
-export const query = graphql`
-    query {
-        allMarkdownRemark {
-            edges {
-                node {
-                    frontmatter {
-                        title
-                    }
-                    fields {
-                        slug
-                    }
-                }
-            }
-        }
-    }
-`
+import { getSortedProjectsData } from '../lib/mdUtils'
+import { GetStaticProps } from 'next'
 
 const Title = ({ bold, right, link }) => {
     const boldCss = css`
@@ -41,7 +25,7 @@ const Title = ({ bold, right, link }) => {
             {link === undefined ? (
                 <span css={boldCss}>{bold}</span>
             ) : (
-                <Link to={link} css={boldCss}>
+                <Link href={link} css={boldCss}>
                     {bold}
                 </Link>
             )}
@@ -67,38 +51,42 @@ const Project = ({ name, date, description, link }) => (
 )
 
 export default function Portfolio({ data }) {
-    const intl = useIntl()
-    const portfolio = intl.locale === 'en' ? portfolioEn : portfolioZh
+    const { t, i18n } = useTranslation()
+    const portfolio = i18n.language === 'en' ? portfolioEn : portfolioZh
 
-    const articles = {}
-    data.allMarkdownRemark.edges.forEach(({ node }) => {
-        articles[node.frontmatter.title] = node.fields.slug
+    const articles = new Set()
+    data.forEach(project => {
+        articles.add(project.id)
     })
 
     return (
         <Layout current="/portfolio">
-            <SEO title={intl.formatMessage({ id: 'portfolio' })} />
+            <SEO title={t('portfolio')} />
             <section>
-                <h2>
-                    <FormattedMessage id="about" />
-                </h2>
+                <h2>{t('about')}</h2>
                 <Board>
-                    <p>
-                        <FormattedMessage id="portfolio1" />
-                    </p>
-                    <p>
-                        <FormattedMessage id="portfolio2" />
-                    </p>
+                    <p>{t('portfolio1')}</p>
+                    <p>{t('portfolio2')}</p>
                 </Board>
             </section>
             <section>
-                <h2>
-                    <FormattedMessage id="projects" />
-                </h2>
+                <h2>{t('projects')}</h2>
                 {portfolio.projects.map((project, index) => (
-                    <Project key={index} {...project} link={articles[project.name]} />
+                    <Project
+                        key={index}
+                        {...project}
+                        link={articles.has(project.name) ? `/projects/${project.name}` : undefined}
+                    />
                 ))}
             </section>
         </Layout>
     )
+}
+
+export const getStaticProps: GetStaticProps = () => {
+    return {
+        props: {
+            data: getSortedProjectsData(),
+        },
+    }
 }

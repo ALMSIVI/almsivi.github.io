@@ -1,8 +1,8 @@
-import React from 'react'
 import Header from './header'
 import Container from './container'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import styles from '../utils/styles'
+import '../utils/setup'
 
 export default function Layout({ current, children }) {
     return (
